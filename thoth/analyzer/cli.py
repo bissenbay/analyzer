@@ -93,6 +93,8 @@ def print_command_result(click_ctx: click.core.Command,
 
     if isinstance(output, str) and output.startswith(('http://', 'https://')):
         _LOG.info("Submitting results to %r", output)
+        _LOG.info(type(content))
+        _LOG.info(content)
         response = requests.post(output, json=content)
         response.raise_for_status()
         _LOG.info(
